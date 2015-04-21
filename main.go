@@ -5,11 +5,11 @@ import (
 	"errors"
 	"strconv"
 	"fmt"
-    "log"
-    "net/http"
-    "time"
-    "flag"
-    apns "github.com/corneldamian/APNs"
+	"log"
+    	"net/http"
+    	"time"
+    	"flag"
+    	apns "github.com/corneldamian/APNs"
 )
 
 type Payload struct {
@@ -54,7 +54,7 @@ func main() {
     flag.StringVar(&cer, "cer", "", "The certificate file name")
     flag.StringVar(&key, "key", "", "The key file name")
     flag.StringVar(&ip, "ip", "127.0.0.1", "The ip address that it lisents to")
-    flag.StringVar(&port, "port", "7075", "The port number")
+    flag.StringVar(&port, "port", "8080", "The port number")
     flag.BoolVar(&sandbox, "sandbox", false, "Sandbox mode or not")
     flag.BoolVar(&debug, "log", false, "Show more log messages")
     flag.Parse()
@@ -78,11 +78,11 @@ func main() {
 
 	cfg := apns.Config{
 		IsProduction: !sandbox,
-	    MaxPoolSize: 10,
-	    SuccessTimeout: time.Millisecond * 300,
-	    NotificationExpiration: time.Duration(-1),
-	    Certificate: cer,
-	    CertificateKey: key,
+	    	MaxPoolSize: 10,
+	    	SuccessTimeout: time.Millisecond * 300,
+	    	NotificationExpiration: time.Duration(-1),
+	    	Certificate: cer,
+	    	CertificateKey: key,
 	} 
 		
 	if err:= apns.Init(cfg); err != nil {
